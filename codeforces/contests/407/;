@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define vi vector<int>
+#define vc vector<char>
+#define vll vector<ll>
+#define pb push_back
+#define sf scanf
+#define pf printf
+#define mp make_pair
+#define all(V) V.begin(),V.end()
+
+using namespace std;
+
+
+void func(int num,int den, vi &coins,int &totval,int n,int c,int &ans)
+{
+	int val=num/den;
+	if(val==totval)
+	{
+		if(num%den!=0) return ;
+		else
+		{
+			ans=min(ans,c);
+		}
+	}
+	else if(val>totval) return;
+	if(n<=0)
+		return;
+	cout<<num<<" "<<den<<" "<<val<<endl;
+	func(num+coins[n-1],den+1,coins,totval,n-1,c+1,ans);
+	func(num,den,coins,totval,n-1,c,ans);
+}
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	int n,k;
+	cin>>n>>k;
+	vi a(n+1);
+	for(int i=0;i<k;i++)	cin>>a[i];
+	int ans=INT_MAX;
+	
+	func(0,0,a,n,k,0,ans);
+	cout<<ans<<endl;
+	return 0;
+}
+
