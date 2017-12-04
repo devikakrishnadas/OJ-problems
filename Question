@@ -1,0 +1,38 @@
+﻿DEVIKA AND FRIENDS
+
+Devika is in trouble. She generally doesn't ask for help, but today she is busy. So now she has turned to you !
+
+Devika is going to Bitlandia to attend a Camp with her friends. 
+There are n flights that go to Bitlandia and each Fi of them stop at Ni airports in between each of which is given by Kij. Each airport is distinguished with the help of a unique Airport code. Each flight is also unique and can be distinguished with the help of the Flight Number.
+Ie, no teo flights can have the same Flight Number. Also, no flight stops at the same airport twice, but different flights may enter the same airport.
+
+There are m friends ( now enemies ), inclusive of Devika. Each member has Bi Bits to spend in Bitlandia.
+
+The friends were playing Monopoly while waiting for their flights, but started fighting with each other ( Yes, Monopoly breaks friendships ) and some of them left.
+Now the remaining ones want to travel in different flights.
+
+This is not the trouble Devika faced. Then what is it ?
+
+Bitlandia is a funny country. The Currency (Bits) value in there changes with each flight that enters the place, and where that flight stopped to serve meals to its passengers. The whole thing is a little shady business !
+
+To be more specific, Let the lunch be served at the airport with code Li.
+Let it be in the jth position in the list of airports that the ith flight goes through.
+Then the bits of the friends with indices i to j gets incremented by (i^j).
+
+Devika wants to know how much money each are going to have once they reach Bitlandia. Can you help her ?
+
+Input
+
+The first line contains two numbers n and Q – indacting the number of flights that goes to Bitlandia and the total number of friends in the gang.
+
+Then n lines follow
+The ith of which will consist of the Flight number of the ith flight Fi
+The number of airports it will stop at before reaching Bitlandia Ni
+
+Then Ki numbers follow, jth of which is the airport code of the airports at which the plane will stop.
+
+The next line contains m values of the array B – Bi indicates the amount of Bits the ith friend initially has.
+
+The next Q lines contain one value each indicating the Flight number the ith friend chose.
+
+And the last line contains n values Li, each of which indicates the Airport code of the airport in which the ith plane stops to serve lunch to its passengers.

@@ -31,30 +31,21 @@ int main()
             cin>>a[i];
         }
         vi b(n+3,0);
-        ll prev;
+        vi c(n+3,0);
         for(int i=n;i>=1;i--)
         {
-            int val1=abs(a[i]-a[i-1]) + abs(a[i+1]-a[i]);
-            int val2=abs(1-a[i-1]) + abs(a[i+1]-1);
-            int val3=abs(a[i]-1) + abs(1-a[i]);
-            if(val1 >= val2 && val1 >= val3)
-            {
-                if(prev +
-            }
-            else if(val2 >= val1 && val2 >= val3 )
+            if(i==n)
             {
                 b[i]=1;
-                b[i+1]=a[i+1];
-                b[i-1]=a[i-1];
+                c[i]=a[i];
             }
             else
             {
-                b[i]=a[i];
-                b[i+1]=1;
-                b[i-1]=1;
+                b[i]=max(b[i+1],c[i+1]+abs(1-a[i+1]));
+                c[i]=max(c[i+1]+abs(a[i+1]-a[i]),b[i+1]+abs(1-a[i]));
             }
-            prev=abs(b[i+1]-b[i])+abs(b[i]-b[i-1]);
         }
+        cout<<max(b[1],c[1])<<endl;
     }
 	return 0;
 }
