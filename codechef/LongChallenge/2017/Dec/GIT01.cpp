@@ -48,7 +48,27 @@ int main()
         {
             cin>>A[i];
         }
-
+        int cnt1=0;
+        int cnt2=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(A[i][j]!=m1[i][j])
+                {
+                    if(A[i][j]=='R')
+                        cnt1+=5;
+                    else cnt1+=3;
+                }
+                if(A[i][j]!=m2[i][j])
+                {
+                    if(A[i][j]=='R')
+                        cnt2+=5;
+                    else cnt2+=3;
+                }
+            }
+        }
+        cout<<min(cnt1,cnt2)<<endl;
     }
 	return 0;
 }

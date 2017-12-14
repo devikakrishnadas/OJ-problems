@@ -1,0 +1,79 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define vi vector<int>
+#define vc vector<char>
+#define vll vector<ll>
+#define pb push_back
+#define sf scanf
+#define ff first
+#define M 1000000007
+#define ss second
+#define pf printf
+#define mp make_pair
+#define all(V) V.begin(),V.end()
+
+using namespace std;
+
+int calcError(vector<pair<double,int> >&val,int n,int m)
+{
+    int rl=0,rr=n,bl=0,br=m;
+    int ans=INT_MAX;
+    for(int i=0;i<val.size();i++)
+    {
+        if(val[i].ss == 0)
+        {
+            rr--;
+            rl++;
+        }
+        else
+        {
+            bl++;
+            br--;
+        }
+        ans=min(ans,min(bl+rr,br+ll));
+    }
+    return ans;
+}
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        vector<pair<pair<int,int>,int> >pts;
+        for(int i=0;i<n;i++)
+        {
+            int x,y;
+            cin>>x>>y;
+            pts.pb(mp(mp(x,y),0));
+        }
+        for(int i=0;i<m;i++)
+        {
+            int x,y;
+            cin>>x>>y;
+            pts.pb(mp(mp(x,y),1));
+        }
+        sort(all(pts));
+        int ans=INT_MAX;
+        for(int i=0;i<pts.size();i++)
+        {
+            vector<pair<double,int> >val; // slope , class
+            for(int j=0;j<pts.size();j++)
+            {
+                if(i==j) continue;
+                double angle=atan2(pts[i].ff.ss - pts[j].ff.ss, pts[i].ff.ff - pts[j].ff.ff);
+                val.pb(mp(angle,pts.ss));
+            }
+            sort(all(val));
+            ans=min(ans,calcError(val,n,m));
+        }
+        cout<<ans<<endl;
+    }
+	return 0;
+}
+
