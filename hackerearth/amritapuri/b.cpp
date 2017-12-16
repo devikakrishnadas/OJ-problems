@@ -36,9 +36,9 @@ long long int E_GCD(long long int a,long long int b,long long  int&x,long long i
 
 int main()
 {
-	//ios_base::sync_with_stdio(false);
-	//cin.tie(0);
-	//cout.tie(0);
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
     ll n,q,m;
     //cin>>n>>q>>m;
     sf("%lld%lld%lld",&n,&q,&m);
@@ -49,22 +49,22 @@ int main()
         //cin>>a[i];
         sf("%lld",&a[i]);
         f[i] = (f[i-1] * a[i])%m;
-        //cerr<<f[i]<<" ";
+        cerr<<f[i]<<" ";
     }
-    //cerr<<endl;
+    cerr<<endl;
     for(int i=n;i>=1;i--)
     {
         b[i] = (b[i+1] * a[i])%m;
-        //cerr<<b[i]<<" ";
+        cerr<<b[i]<<" ";
     }
-    //cerr<<endl;
+    cerr<<endl;
     while(q--)
     {
         int ind;
         cin>>ind;
-        //cerr<<"f : "<<f[ind-1]<<" b : "<<b[ind+1]<<endl;
+        cerr<<"f : "<<f[ind-1]<<" b : "<<b[ind+1]<<endl;
         ll ans = (f[ind-1]*b[ind+1])%m;
-        //cout<<ans<<endl;
+        cout<<ans<<endl;
         pf("%lld\n",ans);
     }
     return 0;
