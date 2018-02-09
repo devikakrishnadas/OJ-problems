@@ -1,0 +1,3 @@
+find inv(b) = na^n;
+use binary search to find n = inv(b);
+take inv(b) + p = na^n;

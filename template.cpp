@@ -11,6 +11,8 @@
 #define pf printf
 #define mp make_pair
 #define all(V) V.begin(),V.end()
+#define FOR(i,a,b) for(int i=a;i<b;i++)
+#define REP(i,n) FOR(i,0,n)
 
 using namespace std;
 
