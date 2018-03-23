@@ -12,41 +12,38 @@
 #define mp make_pair
 #define all(V) V.begin(),V.end()
 #define FOR(i,a,b) for(int i=a;i<b;i++)
-#define rep(i,n) FOR(i,0,n)
+#define REP(i,n) FOR(i,0,n)
 
 using namespace std;
 
-main()
+int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	cout.tie(0);
-    ll n,l;
-    cin>>n>>l;
-    vll c(n);
-    rep(i,n)
-        cin>>c[i];
-    vll dp(n,0);
-    dp[0] = c[0];
-    for(int i=1;i<n;i++)
+    ll n,q;
+    cin>>n>>q;
+    while(q--)
     {
-        dp[i] = min(c[i],2*dp[i-1]);
-	}
-    ll tl = l;
-    ll ans=0;
-    for(ll p=0, i = 1;p<n;p++,i*=2)
-    {
-        if( i & tl )
+        ll x;
+        cin>>x;
+        if(x%2)
         {
-            ans += (dp[p]*(tl/i));
-            tl -= (tl/i)*i;
+            cout<<x/2 + 1<<endl;
         }
-        else if(tl<=0)
+        else
         {
-            ans = min(ans,dp[p]);
+            ll val = n - x/2;
+            ll ans = val;
+            while(val%2 == 0)
+            {
+                val = val/2;
+                ans = ans + val;
+            }
+            ans = ans+x;
+            cout<<(ans+1)/2<<endl;
         }
     }
-    cout<<ans<<endl;
-    return 0;
+	return 0;
 }
 
